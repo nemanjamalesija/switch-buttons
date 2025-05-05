@@ -69,9 +69,9 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-$color-gray-alpha: #d1d1d1; /* Replace with the actual gray color */
-$color-light-alpha: #f1f1f1; /* Replace with the actual light color */
-$color-text: #333; /* Replace with the actual text color */
+$color-gray-alpha: #d1d1d1; 
+$color-light-alpha: #f1f1f1; 
+$color-text: #333;
 
 .SwitchButtons {
 	display: flex;

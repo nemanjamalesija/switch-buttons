@@ -68,3 +68,50 @@ export default {
 	}
 };
 </script>
+<style scoped lang="scss">
+$color-gray-alpha: #d1d1d1; /* Replace with the actual gray color */
+$color-light-alpha: #f1f1f1; /* Replace with the actual light color */
+$color-text: #333; /* Replace with the actual text color */
+
+.SwitchButtons {
+	display: flex;
+	max-width: max-content;
+	margin: 0 auto;
+	border: 1px solid $color-gray-alpha;
+	border-radius: 9999px;
+
+	&-btnSwitch {
+		position: relative;
+		width: rem(100);
+		border: none;
+		border-radius: 9999px;
+		opacity: 0.5;
+		text-transform: lowercase;
+		background: transparent;
+		transition: opacity 0.3s ease;
+
+		&.is-active {
+			border: 1px solid $color-gray-alpha;
+			opacity: 1;
+			background: $color-light-alpha;
+		}
+
+		&--indicatorStart {
+			z-index: 10;
+
+			&::before {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				z-index: -10;
+				width: 100%;
+				height: 100%;
+				border: 1px solid $color-text;
+				border-radius: 9999px;
+				transform: translateX(var(--indicator-position));
+				transition: transform 0.3s ease;
+			}
+		}
+	}
+</style>

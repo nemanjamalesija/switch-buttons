@@ -1,9 +1,8 @@
 <template>
 	<div class="SwitchButtons" :style="indicatorPosition">
-		<Button
+		<button
 			v-for="(option, index) in options"
 			:key="option.id"
-			variation="gamma"
 			:class="[
 				'SwitchButtons-btnSwitch',
 				{
@@ -15,12 +14,10 @@
 			@click="setActive(index)"
 		>
 			{{ option.label }}
-		</Button>
+		</button>
 	</div>
 </template>
 <script>
-import Button from 'app/vue/button/index.vue';
-
 export default {
 	components: { Button },
 	props: {

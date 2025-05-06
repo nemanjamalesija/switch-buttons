@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 // @ts-ignore
 import SwitchButtons from '../../switch-button/index.vue'
-import { ref } from 'vue'
+
 
 const options = [
   { id: 1, label: '2 days', value: '2 days' },

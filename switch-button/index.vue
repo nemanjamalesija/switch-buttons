@@ -19,7 +19,6 @@
 </template>
 <script>
 export default {
-	components: { Button },
 	props: {
 		options: {
 			type: Array,
@@ -71,44 +70,47 @@ $color-light-alpha: #f1f1f1;
 $color-text: #333;
 
 .SwitchButtons {
-	display: flex;
-	max-width: max-content;
-	margin: 0 auto;
-	border: 1px solid $color-gray-alpha;
-	border-radius: 9999px;
+  display: flex;
+  max-width: max-content;
+  border: 1px solid $color-gray-alpha;
+  border-radius: 9999px;
 
-	&-btnSwitch {
-		position: relative;
-		width: rem(100);
-		border: none;
-		border-radius: 9999px;
-		opacity: 0.5;
-		text-transform: lowercase;
-		background: transparent;
-		transition: opacity 0.3s ease;
+  &-btnSwitch {
+    position: relative;
+    width: 150px;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 9999px;
+    opacity: 0.5;
+    text-transform: lowercase;
+    background: transparent;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
 
-		&.is-active {
-			border: 1px solid $color-gray-alpha;
-			opacity: 1;
-			background: $color-light-alpha;
-		}
+    &.is-active {
+      border: 1px solid $color-gray-alpha;
+      opacity: 1;
+      background: $color-light-alpha;
+    }
 
-		&--indicatorStart {
-			z-index: 10;
+    &--indicatorStart {
+      z-index: 10;
 
-			&::before {
-				content: '';
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				z-index: -10;
-				width: 100%;
-				height: 100%;
-				border: 1px solid $color-text;
-				border-radius: 9999px;
-				transform: translateX(var(--indicator-position));
-				transition: transform 0.3s ease;
-			}
-		}
-	}
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -10;
+        width: 100%;
+        height: 100%;
+        border: 1px solid $color-text;
+        border-radius: 9999px;
+        transform: translateX(var(--indicator-position));
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+}
 </style>

@@ -1,4 +1,5 @@
-<script setup>
+<script setup lang="ts">
+// @ts-ignore
 import SwitchButtons from '../../switch-button/index.vue'
 import { ref } from 'vue'
 

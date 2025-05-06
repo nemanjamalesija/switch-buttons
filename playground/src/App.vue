@@ -11,10 +11,15 @@ const options = [
   { id: 4, label: '3 months', value: '3 months' }
 ]
 
-const selectedDurationLabel = ref('1 month')
+const selectedPeriod = ref('1 month')
 </script>
 
 <template>
-  <SwitchButtons :options="options" v-model="selectedDurationLabel" />
+  <SwitchButtons :options="options" v-model="selectedPeriod" />
+  <p>Selected option is: <strong>{{ selectedPeriod }}</strong></p>
 </template>
-
+<style scoped>
+  p {
+    color: #333;
+  }
+</style>

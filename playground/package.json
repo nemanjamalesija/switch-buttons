@@ -1,11 +1,17 @@
 {
-  "name": "playground",
-  "private": true,
+  "name": "switch-buttons",
   "version": "0.0.0",
   "type": "module",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "exports": {
+    ".": "dist/index.js",
+    "./css": "dist/index.css"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,6 +23,7 @@
     "sass-embedded": "^1.87.0",
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4",
     "vue-tsc": "^2.2.8"
   }
 }

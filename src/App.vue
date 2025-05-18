@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from "vue";
-// @ts-expect-error // TODO: add import alias
 import SwitchButtons from "./lib/switch-buttons.vue";
 
 const options = [

@@ -47,13 +47,25 @@ export default defineComponent({
     computedActiveIndex: {
       get(this: {
         options: Options;
-        modelValue: string;
+        modelValue: string | number;
         startIndex: number;
+        $emit: (event: string, ...args: [string | number]) => void;
       }): number {
-        const index = this.options.findIndex(
-          (option) =>
-            this.modelValue === option.value || this.modelValue === option.id,
+        let modelValue = this.modelValue;
+
+        const matchOption = this.options.find(
+          (option) => modelValue === option.id || modelValue === option.label,
         );
+
+        if (matchOption) {
+          modelValue = matchOption.value;
+          this.$emit("update:modelValue", modelValue);
+        }
+
+        const index = this.options.findIndex(
+          (option) => option.value === modelValue,
+        );
+
         return index !== -1 ? index - this.startIndex : 0;
       },
       set(newIndex: number) {
@@ -109,7 +121,6 @@ $color-text: #333;
     border: none;
     border-radius: 9999px;
     opacity: 0.5;
-    text-transform: lowercase;
     background: transparent;
     transition: opacity 0.3s ease;
     cursor: pointer;

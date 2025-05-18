@@ -18,14 +18,23 @@
   </div>
 </template>
 <script lang="ts">
-export default {
+import { defineComponent } from "vue";
+import type { PropType } from "vue";
+
+type Options = {
+  id: string | number;
+  label: string;
+  value: string | number;
+}[];
+
+export default defineComponent({
   props: {
     options: {
-      type: Array,
+      type: Array as PropType<Options>,
       required: true,
     },
     modelValue: {
-      type: [String, Number, Object],
+      type: [String, Number],
       default: null,
     },
   },
@@ -36,18 +45,28 @@ export default {
   },
   computed: {
     computedActiveIndex: {
-      get() {
+      get(this: {
+        options: Options;
+        modelValue: string;
+        startIndex: number;
+      }): number {
         const index = this.options.findIndex(
           (option) =>
             this.modelValue === option.value || this.modelValue === option.id,
         );
         return index !== -1 ? index - this.startIndex : 0;
       },
-      set(newIndex) {
+      set(newIndex: number) {
         const actualIndex = newIndex + this.startIndex;
         if (actualIndex >= 0 && actualIndex < this.options.length) {
           const selectedOption = this.options[actualIndex];
-          this.$emit("update:modelValue", selectedOption.value);
+          if (selectedOption) {
+            this.$emit("update:modelValue", selectedOption.value);
+          } else {
+            console.warn(
+              `Switch Buttons: No option found at index ${actualIndex}. Check options and index logic.`,
+            );
+          }
         }
       },
     },
@@ -58,12 +77,19 @@ export default {
     },
   },
   methods: {
-    setActive(index) {
-      this.computedActiveIndex = index - this.startIndex;
-      this.$emit("optionClick", this.options[index].value);
+    setActive(index: number) {
+      const selectedOption = this.options[index];
+      if (selectedOption) {
+        this.computedActiveIndex = index - this.startIndex;
+        this.$emit("optionClick", selectedOption.value);
+      } else {
+        console.warn(
+          `Switch Buttons: Tried to activate an index (${index}) that doesn't exist in options.`,
+        );
+      }
     },
   },
-};
+});
 </script>
 <style scoped lang="scss">
 $color-gray-alpha: #d1d1d1;

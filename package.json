@@ -1,8 +1,16 @@
 {
   "name": "switch-buttons",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "dist/index.js",
+    "./css": "dist/index.css"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
@@ -13,6 +21,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.26.0",
+    "@types/node": "^22.15.18",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.26.0",
@@ -22,11 +31,11 @@
     "eslint-plugin-vue": "^10.1.0",
     "globals": "^16.0.0",
     "prettier": "^3.5.3",
+    "sass-embedded": "^1.87.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.32.0",
     "vite": "^6.3.5",
-    "vue-tsc": "^2.2.8",
-    "sass-embedded": "^1.87.0",
-    "vite-plugin-dts": "^4.5.4"
+    "vite-plugin-dts": "^4.5.4",
+    "vue-tsc": "^2.2.8"
   }
 }

@@ -14,24 +14,30 @@ const selectedPeriod2 = ref("15 days");
 </script>
 
 <template>
-  <div class="mb-bot-md">
-    <SwitchButtons :options="options" v-model="selectedPeriod" />
+  <div class="container">
+    <div class="mb-bot-md">
+      <SwitchButtons :options="options" v-model="selectedPeriod" />
+      <p>
+        Selected option 1 is: <strong>{{ selectedPeriod }}</strong>
+      </p>
+    </div>
+
+    <SwitchButtons :options="options" v-model="selectedPeriod2" />
     <p>
-      Selected option 1 is: <strong>{{ selectedPeriod }}</strong>
+      Selected option 2 is: <strong>{{ selectedPeriod2 }}</strong>
     </p>
   </div>
-  <SwitchButtons :options="options" v-model="selectedPeriod2" />
-
-  <p>
-    Selected option 2 is: <strong>{{ selectedPeriod2 }}</strong>
-  </p>
 </template>
 <style scoped>
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+}
 p {
   color: #333;
 }
 
 .mb-bot-md {
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 </style>

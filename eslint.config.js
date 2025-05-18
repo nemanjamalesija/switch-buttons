@@ -47,7 +47,7 @@ export default defineConfig([
       "import/default": 2,
       "import/no-commonjs": 2,
       "import/no-unresolved": 2,
-      "import/no-nodejs-modules": 2,
+      "import/no-nodejs-modules": 0,
     },
   },
   {

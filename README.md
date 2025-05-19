@@ -1,6 +1,6 @@
 # Switch Buttons
 
-A component that allows users to toggle between multiple options.
+A component that allows users to toggle between multiple options, with smoot transition animation.
 
 ## Props
 
@@ -17,7 +17,7 @@ Binds the selected value to a variable in the parent component. Supports two-way
 ## Behavior
 
 - The component emits the value of the selected option to the parent via `v-model`.
-- To pre-select an option, initialize `v-model` to either the `id` or `label` of the desired option.
+- To pre-select an option, initialize `v-model` to either the `value`, `id` or `label` of the desired option.
 
 ## Example
 
@@ -35,7 +35,9 @@ Binds the selected value to a variable in the parent component. Supports two-way
 <script setup>
 import { ref } from 'vue'
 
-const selectedOption = ref('Option A')
+const selectedOption = ref('a')
 // or
 const selectedOption = ref(1)
+// or
+const selectedOption = ref('Option A')
 </script>

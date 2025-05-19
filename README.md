@@ -1,6 +1,6 @@
 # Switch Buttons
 
-A component that allows users to toggle between multiple options, with smoot transition animation.
+A component that allows users to toggle between multiple options, with smooth transition animation.
 
 ## Props
 

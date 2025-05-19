@@ -16,7 +16,7 @@ Binds the selected value to a variable in the parent component. Supports two-way
 
 ## Behavior
 
-- The component emits the value of the selected option to the parent via `v-model`.
+- On event `@optionClick`, the component emits the value of the selected option to the parent.
 - To pre-select an option, initialize `v-model` to either the `value`, `id` or `label` of the desired option.
 
 ## Example

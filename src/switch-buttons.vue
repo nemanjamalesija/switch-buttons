@@ -54,7 +54,10 @@ export default defineComponent({
         let modelValue = this.modelValue;
 
         const matchOption = this.options.find(
-          (option) => modelValue === option.id || modelValue === option.label,
+          (option) =>
+            modelValue === option.id ||
+            modelValue === option.label ||
+            modelValue === option.value,
         );
 
         if (matchOption) {

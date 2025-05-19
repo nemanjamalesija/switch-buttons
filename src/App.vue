@@ -20,7 +20,7 @@ const options3 = [
   { id: 1, label: "Interactions", value: "interactions" },
 ];
 
-const selectedOption = ref("1 month");
+const selectedOption = ref("1-m");
 const selectedOption2 = ref(1);
 const selectedOption3 = ref("Visits");
 
